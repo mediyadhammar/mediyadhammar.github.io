@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Kalta</title>
+<script>
+  // Une seule URL à donner partout — console AdMob, fiches Play, formulaire
+  // Data safety — et chacun arrive dans sa langue. Le contenu reste sur des
+  // pages distinctes : une politique de confidentialité doit rester lisible
+  // sans JavaScript, d'où les deux liens ci-dessous, qui suffisent seuls.
+  (function () {
+    try {
+      var langue = (navigator.language || 'en').toLowerCase();
+      location.replace(
+        langue.indexOf('fr') === 0 ? 'confidentialite.html' : 'privacy.html'
+      );
+    } catch (e) {
+      // Sans redirection, la page reste utilisable telle quelle.
+    }
+  })();
+</script>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #1b1b1b; background: #fff; text-align: center;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8e8e8; background: #121513; }
+    a { color: #7fd1a0; }
+  }
+  main { padding: 2rem 1.5rem; max-width: 30rem; }
+  h1 { font-size: 1.3rem; margin: 0 0 1.25rem; }
+  a {
+    display: inline-block; margin: .35rem .4rem; padding: .6rem 1.2rem;
+    border: 1px solid currentColor; border-radius: 999px;
+    color: #14532b; text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Politique de confidentialité — Kalta</h1>
+  <p>
+    <a href="confidentialite.html">Lire en français</a>
+    <a href="privacy.html">Read in English</a>
+  </p>
+</main>
+</body>
+</html>
