@@ -5,31 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Hearts (Kalta)</title>
 <style>
-  :root { color-scheme: light dark; }
+  /* **Le thème passe par des variables, et c'est ce qui compte.** Les
+     couleurs sombres étaient auparavant écrites *avant* les claires : une
+     media query n'ajoutant aucune spécificité, c'est la règle la plus basse
+     dans le fichier qui l'emportait, et l'encadré gardait son fond clair
+     en mode sombre — texte blanc cassé sur fond blanc cassé, illisible.
+     Avec des variables, chaque règle lit la même valeur et seul le thème
+     la change : l'ordre d'écriture n'a plus prise. */
+  :root {
+    color-scheme: light dark;
+    --fond: #fff;
+    --texte: #1b1b1b;
+    --discret: #666;
+    --lien: #14532b;
+    --encadre-fond: #f2f7f3;
+    --encadre-bord: #cfe3d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fond: #121513;
+      --texte: #e8e8e8;
+      --discret: #9a9a9a;
+      --lien: #7fd1a0;
+      --encadre-fond: #1b241d;
+      --encadre-bord: #46815c;
+    }
+  }
   body {
     margin: 0 auto; padding: 2rem 1.25rem 4rem; max-width: 42rem;
     font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    color: #1b1b1b; background: #fff;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e8e8e8; background: #121513; }
-    a { color: #7fd1a0; }
-    .callout { background: #1b241d; border-color: #2f5c3f; }
+    color: var(--texte); background: var(--fond);
   }
   h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 .25rem; }
   h2 { font-size: 1.2rem; margin: 2.25rem 0 .5rem; }
   h3 { font-size: 1rem; margin: 1.5rem 0 .35rem; }
-  .updated { color: #666; font-size: .9rem; margin: 0 0 2rem; }
-  @media (prefers-color-scheme: dark) { .updated { color: #9a9a9a; } }
+  .updated { color: var(--discret); font-size: .9rem; margin: 0 0 2rem; }
   ul { padding-left: 1.2rem; }
   li { margin: .25rem 0; }
-  a { color: #14532b; }
+  a { color: var(--lien); }
   .callout {
-    background: #f2f7f3; border: 1px solid #cfe3d6; border-radius: 8px;
+    background: var(--encadre-fond);
+    border: 1px solid var(--encadre-bord);
+    border-radius: 8px;
     padding: .9rem 1rem; margin: 1.25rem 0;
   }
-  footer { margin-top: 3rem; font-size: .9rem; color: #666; }
-  @media (prefers-color-scheme: dark) { footer { color: #9a9a9a; } }
+  footer { margin-top: 3rem; font-size: .9rem; color: var(--discret); }
 </style>
 </head>
 <body>
